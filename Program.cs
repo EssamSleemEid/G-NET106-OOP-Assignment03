@@ -207,6 +207,11 @@
                 customerFee = CustomerFee;
             }
 
+            public virtual void GenerateCustomsReport()
+            {
+                Console.WriteLine("Customs Report Generated.");
+            }
+
             public override void PrintShipment()
             {
                 Console.WriteLine("International Shipment");
@@ -216,7 +221,20 @@
             }
         }
 
-        public class DeliveryCenter
+        public class PriorityInternationalShipment : InternationalShipment
+        {
+            public PriorityInternationalShipment(string description,double weight,decimal deliveryFee,string trackingCode,DeliveryAddress Destination,string DestinationCountry,decimal CustomerFee): base(description,weight,deliveryFee,trackingCode,Destination,DestinationCountry,CustomerFee)
+            {
+
+            }
+            public override void GenerateCustomsReport()
+            {
+                Console.WriteLine("Customs Report Generated.");
+            }
+
+        }
+
+            public class DeliveryCenter
         {
             public string CenterName { get; set; }
             private Shipment[] shipments;
