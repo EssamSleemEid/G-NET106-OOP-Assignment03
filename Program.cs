@@ -14,6 +14,14 @@
               
               overriding is child class provide new implementation for a method inherited from the parent
             */
+
+            //b)  What is the difference between Static Binding and Dynamic Binding?
+
+            /*
+              the static is the method to be executed is determined at compile time
+
+              the dynamic is the method to be executed is detrmined at run time 
+             */
             #endregion
 
             #endregion
