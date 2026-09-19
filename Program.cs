@@ -307,6 +307,14 @@
             }
         }
 
+        public sealed class CompletedShipment : Shipment
+        {
+            public CompletedShipment(string description,double weight,decimal deliveryFee,string trackingCode,DeliveryAddress Destination): base(trackingCode,description,weight,deliveryFee,Destination)
+            {
+
+            }
+        }
+
         static void Main(string[] args)
         {
             #region Part01
