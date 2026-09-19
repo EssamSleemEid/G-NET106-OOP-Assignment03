@@ -24,6 +24,13 @@
              */
             #endregion
 
+            #region Question02
+            //a)  What is the purpose of the sealed keyword when applied to a class?
+
+            //prevent other classes from inheriting from that class
+
+
+            #endregion
             #endregion
         }
     }
