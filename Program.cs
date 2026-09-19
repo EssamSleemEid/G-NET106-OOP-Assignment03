@@ -1,4 +1,6 @@
-﻿namespace G_NET106_OOP_Assignment03
+﻿using static G_NET106_OOP_Assignment03.Program;
+
+namespace G_NET106_OOP_Assignment03
 {
     internal class Program
     {
@@ -237,6 +239,7 @@
             public class DeliveryCenter
         {
             public string CenterName { get; set; }
+            public Driver Driver { get; set; }
             private Shipment[] shipments;
 
             public DeliveryCenter(string centerName)
@@ -333,6 +336,18 @@
             }
         }
 
+        public class Driver
+        {
+            public string Name { get; set; }
+
+            public Driver(string name)
+            {
+
+                Name = name;
+            }
+        }
+
+
         static void Main(string[] args)
         {
             #region Part01
@@ -372,6 +387,68 @@
 
             #region Part02
 
+            Driver driver01 = new Driver("essam");
+
+            DeliveryCenter center01 = new DeliveryCenter("sinai delevery center");
+
+            center01.Driver = driver01;
+
+            Console.WriteLine("Driver : " + center01.Driver.Name);
+
+            DeliveryAddress address01 = new DeliveryAddress("north sinai", "el masaeed", 1);
+
+
+            DeliveryAddress address02 = new DeliveryAddress("north sinai", "el dahia", 2);
+
+
+            DeliveryAddress address03 = new DeliveryAddress("north sinai", "el reisa", 3);
+
+            StandardShipment standardShipment01 = new StandardShipment("samsung A34 phone ",1.2,55,"A034",address01);
+
+            center01.AddShipment(standardShipment01);
+
+            ExpressShipment expressShipment01 = new ExpressShipment("laptop dell presession5570 ",5,120,"L507", address02,20);
+
+            center01.AddShipment(expressShipment01);
+
+            InternationalShipment internationalShipment01 = new InternationalShipment("huawei smart watch Gt2",0.4,200,"HG02",address03,"Egypt",50);
+
+            center01.AddShipment(internationalShipment01);
+
+            center01.PrintAllShipments();
+
+            DeliveryHelper.PrintShipmentDetails(standardShipment01);
+            DeliveryHelper.PrintShipmentDetails(expressShipment01);
+            DeliveryHelper.PrintShipmentDetails(internationalShipment01);
+
+            Console.WriteLine("original weight : " + standardShipment01.Weight + " Kg");
+
+            standardShipment01.UpdateWeight(0.2);
+
+            Console.WriteLine("updated weight : " + standardShipment01.Weight + " Kg");
+
+
+            Console.WriteLine("original weight without packing : " + expressShipment01.Weight + " kg");
+
+            expressShipment01.UpdateWeight(2, 0.8);
+
+            Console.WriteLine("updated weight with packing weight : " + expressShipment01.Weight + " kg");
+
+
+            Shipment[] shipments ={standardShipment01,expressShipment01,internationalShipment01};
+
+            foreach (Shipment shipment in shipments)
+            {
+                shipment.PrintShipment();
+            }
+
+            CompletedShipment completedShipment01 = new CompletedShipment("Headset Esport g607",0.5,80,"G601",address01);
+
+            completedShipment01.PrintShipment();
+
+            PriorityInternationalShipment priorityShipment01 = new PriorityInternationalShipment( "mouse mo305",0.8,200,"M305",address03,"Egypt",70);
+
+            priorityShipment01.PrintShipment();
 
             #endregion
         }
