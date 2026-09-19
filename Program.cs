@@ -33,7 +33,9 @@
 
             //sealed class can't be inherited and the sealed method can't be overrided
 
+            //c)  Can a sealed method be overridden? Why?
 
+            //no bc sealed prevent further ovveriding of that method 
             #endregion
             #endregion
         }
