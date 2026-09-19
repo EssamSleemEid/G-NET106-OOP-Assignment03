@@ -29,6 +29,10 @@
 
             //prevent other classes from inheriting from that class
 
+            //b)  What is the difference between a sealed class and a sealed method?
+
+            //sealed class can't be inherited and the sealed method can't be overrided
+
 
             #endregion
             #endregion
